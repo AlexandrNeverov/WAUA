@@ -1,16 +1,16 @@
 ---
-name:  Install nginx Server
-hosts: Nginx
-become: yes
+- name:  Install nginx Server
+  hosts: Nginx
+  become: yes
 
-tasks:
-  - name: install nginx
-    apt: 
-      name: nginx
-      state: present
+  tasks:
+    - name: install nginx
+      apt: 
+        name: nginx
+        state: present
 
-  - name: nginx enable
-    service:
-      name: nginx
-      state: started
-      enabled: yes
+    - name: nginx enable
+      service:
+        name: nginx
+        state: started
+        enabled: yes
