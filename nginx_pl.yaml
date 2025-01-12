@@ -1,4 +1,4 @@
-name: Nginx
+name:  nginx
 hosts: Nginx
 become: yes
 
