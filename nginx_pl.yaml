@@ -34,7 +34,7 @@
 
     - name: Config
       template:
-        source: /home/ubuntu/.ansible/WAUA/templates/nginx.conf.j2
+        src: /home/ubuntu/.ansible/WAUA/templates/nginx.conf.j2
         dest: /etc/nginx/sites-available/site1
 
   handlers:
