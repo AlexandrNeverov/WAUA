@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-    - name: install nginx
+    - name: Install nginx
       apt: 
         name: nginx
         state: present
@@ -14,3 +14,9 @@
         name: nginx
         state: started
         enabled: yes
+
+    - name: Add git repository
+      git:
+        repo: https://github.com/AlexandrNeverov/page
+        dest: /var/www/html
+        force: yes
