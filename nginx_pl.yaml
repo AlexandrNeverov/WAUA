@@ -15,6 +15,11 @@
         state: started
         enabled: yes
 
+    - name: Clear the /var/www/html directory
+      file:
+        path: /var/www/html
+        state: absent
+
     - name: Add git repository
       git:
         repo: https://github.com/AlexandrNeverov/page
