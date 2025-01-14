@@ -20,3 +20,4 @@
         repo: https://github.com/AlexandrNeverov/page
         dest: /var/www/html
         force: yes
+        clone: yes
