@@ -8,6 +8,7 @@
     web_root: "/var/www/html"
     nginx_service_name: "nginx"
     nginx_port: 80
+    worker_processes: 4
 
   tasks:
     - name: Install nginx
