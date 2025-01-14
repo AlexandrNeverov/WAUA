@@ -4,7 +4,7 @@
   become: yes
 
   vars:
-    server_name: 54.164.63.159
+    server_name: Nginx
     nginx_port: 8080
     web_root: /var/www/html
 
