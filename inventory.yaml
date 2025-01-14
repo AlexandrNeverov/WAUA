@@ -1,8 +1,8 @@
 All:
   hosts:
     Node:
-      ansible_host: 44.212.75.107
+      ansible_host: 54.158.247.110
       ansible_user: ubuntu
     Nginx:
-      ansible_host: 3.82.155.201
+      ansible_host: 54.164.63.159
       ansible_user: ubuntu
