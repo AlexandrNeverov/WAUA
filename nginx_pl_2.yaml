@@ -1,0 +1,41 @@
+---
+- name: Install nginx Server
+  hosts: Nginx
+  become: yes
+
+  vars:
+    repo_url: "https://github.com/AlexandrNeverov/page"
+    web_root: "/var/www/html"
+    nginx_service_name: "nginx"
+    nginx_port: 80
+
+  tasks:
+    - name: Install nginx
+      apt: 
+        name: nginx
+        state: present
+
+    - name: nginx enable
+      service:
+        name: "{{ nginx_service_name }}"
+        state: started
+        enabled: yes
+
+    - name: Clear the web root directory
+      file:
+        path: "{{ web_root }}"
+        state: absent
+
+    - name: Add git repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ web_root }}"
+        force: yes
+        clone: yes
+
+    - name: Template nginx.conf file
+      template:
+        src: nginx.conf.j2
+        dest: "/etc/nginx/nginx.conf"
+      notify:
+        - Restart nginx
