@@ -3,6 +3,11 @@
   hosts: Nginx
   become: yes
 
+  vars:
+    server_name: 54.164.63.159
+    nginx_port: 8080
+    root: /var/www/html
+
   tasks:
     - name: Install nginx
       apt: 
@@ -26,3 +31,14 @@
         dest: /var/www/html
         force: yes
         clone: yes
+
+    - name: Config
+      template:
+        source: /home/ubuntu/.ansible/WAUA/templates/nginx.conf.j2
+        dest: /etc/nginx/sites-available/site1
+
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted
